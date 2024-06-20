@@ -6,5 +6,5 @@ A social media website where users can create accounts, post content, and view p
 ### Instructions:
 1. Clone the repository.
 2. Start mongodb using `sudo systemctl start mongod`.
-3. In the project directory use `npm start`.
+3. In the project directory use `npm install` then `npm start`.
 4. In a browser go to localhost:8000.
