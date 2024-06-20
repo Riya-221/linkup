@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <button id="myBtn" class="dropbtn">
+            <img src="https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg"
+                class="icon">
+        </button>
+        <p class="hide">
+            <%= user.name %>
+        </p>
+        <a href="/api/profile/<%= user.name %>"><i class="fas fa-user"></i>Profile</a>
+        <a class="active" href="/home/<%= user.name %>"><i class="fas fa-home"></i>Home</a>
+        <a href="/api/friends/<%= user.name %>"><i class="fas fa-users"></i>Friends</a>
+        <a href="/api/post/<%= user.name %>"><i class="fas fa-edit"></i>Posts</a>
+        <a href="#c"><i class="fas fa-comment-alt"></i>Chat</a>
+        <a href="/"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </div>
+
+
+
+    <div id="homecontent">
+        <% if (posts.length> 0) { %>
+            <div class="posts-container">
+                <% posts.forEach(post=> { %>
+                    <div class="post">
+                        <h2>
+                            <%= post.title %>
+                        </h2>
+                        <p>
+                            <%= post.content %>
+                        </p>
+                        <p>Posted by:<a href="/api/details/<%= post.user.name%>">
+                                <%= post.user.name %>
+                            </a></p>
+                        <p>Likes: <span id="likes-<%= post._id %>">
+                                <%= post.likes %>
+                            </span></p>
+                        <p>Dislikes: <span id="dislikes-<%= post._id %>">
+                                <%= post.dislikes %>
+                            </span></p>
+                        <button onclick="likePost('<%= post._id %>')">Like</button>
+                        <button onclick="dislikePost('<%= post._id %>')">Dislike</button>
+                    </div>
+                    <% }); %>
+            </div>
+            <% } else { %>
+                <p>No posts found.</p>
+                <% } %>
+    </div>
+
+    <script>
+        function likePost(postId) {
+            $.post(`/api/like/${postId}`, function (data) {
+                $(`#likes-${postId}`).text(data.likes);
+            });
+        }
+
+        function dislikePost(postId) {
+            $.post(`/api/dislike/${postId}`, function (data) {
+                $(`#dislikes-${postId}`).text(data.dislikes);
+            });
+        }
+    </script>
+</body>
+
+</html>
