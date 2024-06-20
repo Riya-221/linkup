@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/signup.css">
+    <title>Sign in</title>
+</head>
+<body>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <header>
+        <div class="main">
+            <div class="title">
+                Sign Up
+            </div>
+            <div class="form">
+                <form action="/signup" method="POST">
+                    <div class="textbox">
+                        <label>Username</label><br>
+                        <input required type="text" placeholder="Username" name ="name"><br>
+
+                        <label>Email</label><br>
+                        <input required type="email" placeholder="Email" name ="email"><br>
+
+                        <label>Password</label><br>
+                        <input required type="password" placeholder="Enter password" name="pswd">
+
+                        <label>Phone no.</label><br>
+                        <input type="text" placeholder="Enter Phone no." name="phone">
+
+                        <label>Gender</label><br>
+                        <input type="text" placeholder="Enter Gender" name="gender">
+		                
+						<label>Address</label><br>
+						<input type="text" placeholder="Enter address" name="addr">
+
+						<label>About</label><br>
+						<input type="text" placeholder="Enter About info" name="about">
+						
+                    </div>
+                    <div class="btn">
+                        <button type="submit" value="Register">Submit</button><br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: radial-gradient(#444, #333);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar a.active {
+    background-color: #cc1db2;
+    color: white;
+}
+
+.sidebar .dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.sidebar .icon {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar p.hide {
+    display: none;
+}
+
+#homecontent {
+    margin-left: 320px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Form styles */
+#createPostForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#createPostForm .form-group {
+    margin-bottom: 15px;
+}
+
+#createPostForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#createPostForm input, #createPostForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#createPostForm .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cc1db2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#createPostForm .btn:hover {
+    background-color: #cc1db2;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto; 
+}
+
+.post {
+    background-image: linear-gradient(#222, #111);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.post h2 {
+    margin-top: 0;
+    color: #cc1db2;
+    font-weight: 500;
+}
+
+.post p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.post p span {
+    font-weight: bold;
+}
+
+.post p a {
+    color: #cc1db2;
+    text-decoration: none;
+}
+
+.post p a:hover {
+    text-decoration: underline;
+}
+
+.post button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #cc1db2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.post button:hover {
+    background-color: #cc1db2;
+}

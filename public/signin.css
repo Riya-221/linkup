@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    background-image: linear-gradient(#333,#000);
+    height: 100vh;
+}
+
+.main{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    position: absolute;
+    width: 20%;
+}
+
+.main .name{
+    font-size: 150%;
+    padding: 15px 30px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: transparent;
+    border-bottom: transparent;/**/
+    text-align: center;
+}
+
+.name h2{
+    font-family:  'Times New Roman', Times, serif
+   
+}
+
+.title{
+    font-size: 150%;
+    border: 1px solid rgb(106, 102, 102);
+    padding: 15px 30px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #1e1e1e;
+}
+
+.textbox{
+    font-size: 150%;
+    border: 1px solid rgb(106, 102, 102);
+    padding: 15px 30px;
+    background-color: #1e1e1e;
+    border-bottom: transparent;
+    border-top: transparent;/**/
+    /* height: 300px; */
+    /*isme vertical align karna bacha hai*/ 
+}
+
+.textbox input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 80%;
+    background-color: #323030;
+    color: rgb(180, 180, 180);
+    border: transparent;
+    margin-top: 10px;
+}
+
+.textbox label{
+    font-size: 80%;
+    padding-bottom: 10px;
+}
+
+.textbox input::placeholder{
+    color: rgb(186, 186, 186);
+}
+
+.btn{
+    border: 1px solid rgb(106, 102, 102);
+    border-radius: 0px 0px 10px 10px;
+    padding: 15px 30px;
+    background-color: #1e1e1e;
+    justify-content: space-between;
+    border-top: transparent;/**/
+}
+
+.btn button{
+    padding: 3px 5px;
+    height: 32px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 95%;
+    border-radius: 10px;
+    background-color: #cc1db2;
+    color: #fff;
+}
+
+.btn button:hover{
+    background-color: #90094c;
+    transition: 0.25s ease;
+}

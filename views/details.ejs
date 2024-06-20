@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    .post{
+        border: 2px solid white ;
+        border-radius: 10px;
+        margin:5px ;
+    }
+</style>
+
+<div class="sidebar">
+    <button id="myBtn" class="dropbtn">
+        <img src="https://t4.ftcdn.net/jpg/04/83/90/95/360_F_483909569_OI4LKNeFgHwvvVju60fejLd9gj43dIcd.jpg"
+            class="icon">
+    </button>
+    <p class="hide">
+        <%= user.name %>
+    </p>
+    <a href="/api/profile/<%= user.name %>"><i class="fas fa-user"></i>Profile</a>
+    <a class="active" href="/home/<%= user.name %>"><i class="fas fa-home"></i>Home</a>
+    <a href="/api/friends/<%= user.name %>"><i class="fas fa-users"></i>Friends</a>
+    <a href="/api/post/<%= user.name %>"><i class="fas fa-edit"></i>Posts</a>
+    <a href="#c"><i class="fas fa-comment-alt"></i>Chat</a>
+    <a href="/"><i class="fas fa-sign-out-alt"></i>Logout</a>
+</div>
+
+
+
+<div class="info">
+    <p>Name: <%=user.name %> </p>
+    <p>Email: <%=user.email %> </p>
+    <p>Gender: <%=user.gender %> </p>
+    <p>About: <%=user.about %> </p>
+    <p>Followers: <%=user.followers.length %></p>
+    <p>Following: <%=user.following.length %></p>
+</div>
+
+
+<% if (postdata.length > 0) { %>
+    <div class="posts-container">
+        <% postdata.forEach(post => { %>
+            <div class="post">
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p>
+                <p>Likes: <%= post.likes %></p>
+                <p>Comments: <%= post.comments %></p>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <p>No posts found.</p>
+<% } %>
+
+<div>
+    <% if (currentUser && currentUser.name !== user.name) { %>
+        <% if (!currentUser.following.includes(user._id)) { %>
+            <button id="followButton" onclick="followUser('<%= user._id %>')">Follow</button>
+        <% } else { %>
+            <button id="followButton" disabled>Following</button>
+        <% } %>
+    <% } %>
+</div>
+
+
+<script>
+    function followUser(userId) {
+        console.log('Following user with ID:', userId); 
+        $.post(`/api/follow/${userId}`, function(data) {
+            alert(data.message);
+        }).fail(function() {
+            console.log('Error following user.'); 
+            alert("Error following user.");
+        });
+    }
+</script>
